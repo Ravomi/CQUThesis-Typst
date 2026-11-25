@@ -37,7 +37,7 @@ jobs:
       - name: Compile and verify Blind Review mode
         run: |
           make blind
-          if pdftotext main-blind.pdf - | grep -qE "原创性声明|版权使用授权书"; then
+          if pdftotext main-blind.pdf - | grep -qE "学位论文原创性声明|版权使用授权书"; then
             echo "ERROR: Blind review PDF leaked authorization page!"
             exit 1
           fi
