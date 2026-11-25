@@ -24,7 +24,7 @@ CQUThesis-Typst 根据重庆大学《重庆大学本科设计（论文）撰写�
 
 # 用户协议
 
-1. 本模板参考原版 [nanmu42/CQUThesis](https://github.com/nanmu42/CQUThesis) 按照 [LaTeX Project Public License](https://latex-project.org/lppl/lppl-1-3.txt)（1.3 或以后版本）发布；
+1. 本模板按照 [MIT License](https://opensource.org/licenses/MIT) 开源发布；
 2. 截止本文档编辑时，重庆大学教务处和研究生院只提供了毕业论文写作指南，没有提供官方模板，也没有授权或认证任何第三方模板为官方模板。本模板是按照写作指南的参考实现，模板作者自当尽力，但不保证审查老师不提意见。在开始使用前，您同意，任何由于本模板而引起的论文格式审查问题与本模板作者无关。
 
 # 获取与部署
@@ -99,12 +99,10 @@ CQUThesis-Typst/
 # 提问和支持
 
 * [GitHub Issues](https://github.com/Ravomi/CQUThesis-Typst/issues)
-* 原版 LaTeX 模板：[nanmu42/CQUThesis](https://github.com/nanmu42/CQUThesis)
-* 2026 国际生 LaTeX 参考：[mishaown/CQUThesis-International-2026](https://github.com/mishaown/CQUThesis-International-2026)
 
 # 致谢 / Acknowledgements
 
-这个模板是站在巨人肩膀上的成果，感谢 [nanmu42/CQUThesis](https://github.com/nanmu42/CQUThesis)（李振楠及各位贡献者）、[mishaown/CQUThesis-International-2026](https://github.com/mishaown/CQUThesis-International-2026)、LaTeX 2e 计划、[CTeX 社区](https://github.com/CTeX-org/ctex-kit)、薛瑞尼副教授的 [ThuThesis](https://github.com/xueruini/thuthesis)、[中国科学技术大学 TeX 用户组](https://github.com/ustctug/gbt-7714-2015) 以及 [Typst](https://github.com/typst/typst) 开源社区。
+感谢 [Typst](https://github.com/typst/typst) 开源社区及所有为中文学术排版做出贡献的开发者。
 
 世界因你们更美好。
 

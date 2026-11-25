@@ -1,5 +1,4 @@
 // 重庆大学学位论文 Typst 模板 (CQUThesis-Typst)
-// 改编自 nanmu42/CQUThesis (LaTeX)
 
 #let thesis-state = state("cqu-thesis", (:))
 
@@ -261,7 +260,7 @@
     appendix-content
   }
 
-  // 原创性声明与版权使用授权书（盲审模式下自动省略，参考 CQUThesis-International-2026）
+  // 原创性声明与版权使用授权书（盲审模式下自动省略）
   if not blind-trial {
     pagebreak()
     heading(level: 1, numbering: none, outlined: true)[重庆大学学位论文原创性声明和版权使用授权书]

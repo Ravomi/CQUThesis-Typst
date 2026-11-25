@@ -7,7 +7,6 @@
 == 求助方案
 
 - 在 GitHub 上提交 Issue：#link("https://github.com/Ravomi/CQUThesis-Typst/issues")
-- 参考原版 LaTeX 仓库：#link("https://github.com/nanmu42/CQUThesis")
 
 == 结语
 
