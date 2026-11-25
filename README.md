@@ -37,6 +37,18 @@ typst compile --format png --ppi 100 main.typ figures/preview.png
 
 ![CQUPoster-Typst 海报预览](poster/figures/preview.png)
 
+## 学术幻灯片模板（`slides/`）
+
+仓库同时内置了 16:9 宽屏、零外部依赖的重庆大学学术幻灯片模板（[slides/](slides/)），支持标题页、章节过渡页、标准内容页与双栏布局：
+
+```bash
+cd slides
+typst compile main.typ slides.pdf
+typst compile --format png --ppi 120 main.typ "figures/preview-{p}.png"
+```
+
+![CQUSlides-Typst 首页预览](slides/figures/preview-1.png)
+
 # 用户协议
 
 1. 本模板按照 [MIT License](https://opensource.org/licenses/MIT) 开源发布；
