@@ -34,23 +34,23 @@
 #poster-card("2. 系统架构与核心方法")[
   系统由规划器（Planner）、并发执行器（Executor）与状态校验器（Verifier）三部分组成，通过有向无环图（DAG）实现动态调度与闭环反馈：
 
-  #v(10pt)
+  #v(14pt)
   #align(center)[
-    #cetz.canvas({
+    #cetz.canvas(length: 1.35cm, {
       import cetz.draw: *
-      rect((0, 0), (4.2, 1.8), fill: rgb("#DBEAFE"), stroke: 1.5pt + rgb("#1E5AA8"), radius: 6pt, name: "planner")
-      content("planner", align(center)[*Planner*\ #text(size: 14pt)[DAG 任务拆解]])
+      rect((0, 0), (4.6, 2.2), fill: rgb("#DBEAFE"), stroke: 2pt + rgb("#1E5AA8"), radius: 8pt, name: "planner")
+      content("planner", align(center)[#text(size: 22pt, weight: "bold")[Planner]\ #v(4pt) #text(size: 16pt)[DAG 任务拆解]])
 
-      rect((5.4, 0), (9.8, 1.8), fill: rgb("#003B73"), stroke: none, radius: 6pt, name: "exec")
-      content("exec", align(center, text(fill: white)[*Executor*\ #text(size: 14pt)[动态并发调度]]))
+      rect((5.6, 0), (10.4, 2.2), fill: rgb("#003B73"), stroke: none, radius: 8pt, name: "exec")
+      content("exec", align(center, text(fill: white)[#text(size: 22pt, weight: "bold")[Executor]\ #v(4pt) #text(size: 16pt)[动态并发调度]]))
 
-      rect((11.0, 0), (15.2, 1.8), fill: rgb("#FEF3C7"), stroke: 1.5pt + rgb("#D97706"), radius: 6pt, name: "ver")
-      content("ver", align(center)[*Verifier*\ #text(size: 14pt)[闭环断言校验]])
+      rect((11.4, 0), (16.0, 2.2), fill: rgb("#FEF3C7"), stroke: 2pt + rgb("#D97706"), radius: 8pt, name: "ver")
+      content("ver", align(center)[#text(size: 22pt, weight: "bold")[Verifier]\ #v(4pt) #text(size: 16pt)[闭环断言校验]])
 
-      line("planner.east", "exec.west", mark: (end: ">", fill: black), stroke: 1.8pt)
-      line("exec.east", "ver.west", mark: (end: ">", fill: black), stroke: 1.8pt)
-      line("ver.south", (13.1, -1.1), (2.1, -1.1), "planner.south", mark: (end: ">", fill: rgb("#D97706")), stroke: (paint: rgb("#D97706"), thickness: 1.5pt, dash: "dashed"))
-      content((7.6, -1.6), text(size: 14pt, fill: rgb("#B45309"))[失败局部重规划与状态裁剪])
+      line("planner.east", "exec.west", mark: (end: ">", fill: black), stroke: 2.2pt)
+      line("exec.east", "ver.west", mark: (end: ">", fill: black), stroke: 2.2pt)
+      line("ver.south", (13.7, -1.2), (2.3, -1.2), "planner.south", mark: (end: ">", fill: rgb("#D97706")), stroke: (paint: rgb("#D97706"), thickness: 2pt, dash: "dashed"))
+      content((8.0, -1.7), text(size: 16pt, weight: "bold", fill: rgb("#B45309"))[失败局部重规划与状态裁剪])
     })
   ]
 
