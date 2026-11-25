@@ -1,8 +1,9 @@
 # CQUThesis-Typst：重庆大学毕业论文 Typst 模板（2026）
 
+[![Build Typst Thesis](https://github.com/Ravomi/CQUThesis-Typst/actions/workflows/build.yml/badge.svg)](https://github.com/Ravomi/CQUThesis-Typst/actions/workflows/build.yml)
 [![Typst](https://img.shields.io/badge/Typst-0.14%2B-239DAD?logo=typst&logoColor=white)](https://typst.app/)
 [![GitHub repo](https://img.shields.io/badge/GitHub-CQUThesis--Typst-181717?logo=github)](https://github.com/Ravomi/CQUThesis-Typst)
-[![License](https://img.shields.io/badge/License-LPPL--1.3c-blue.svg)](https://latex-project.org/lppl/lppl-1-3.txt)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **CQUThesis-Typst** 表示的是 **C**hong**Q**ing **U**niversity **Thesis** (**Typst** Edition)。
 
@@ -51,6 +52,11 @@ typst compile main.typ
 
 # 实时监听文件改动并毫秒级增量编译
 typst watch main.typ
+
+# 或使用 Makefile（支持一键生成盲审版 main-blind.pdf）：
+make        # 编译 main.pdf
+make blind  # 一键生成盲审版 main-blind.pdf
+make clean  # 清理生成文件
 ```
 
 推荐使用 VS Code 搭配 **Tinymist Typst** 插件，可获得语法高亮、跳转与实时 PDF 预览。
@@ -107,6 +113,7 @@ CQUThesis-Typst/
 - **Original upstream**: [nanmu42/CQUThesis](https://github.com/nanmu42/CQUThesis) by Zhennan Li and contributors
 - **Modified community baseline**: [yinguoweiOvO/CQU_Thesis2024](https://github.com/yinguoweiOvO/CQU_Thesis2024)
 - **International adaptation**: [mishaown/CQUThesis-International-2026](https://github.com/mishaown/CQUThesis-International-2026) by Md Minhazul Islam
+- **Full credit and lineage**: [ACKNOWLEDGMENTS.md](ACKNOWLEDGMENTS.md)
 
 世界因你们更美好。
 

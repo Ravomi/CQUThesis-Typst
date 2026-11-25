@@ -14,12 +14,12 @@
     "重庆大学本科学生毕业论文（设计）"
   } else if thesis-type == "master" {
     if professional-master {
-      "重庆大学专业硕士学位论文"
+      "重庆大学硕士学位论文（专业学位）"
     } else {
-      "重庆大学硕士学位论文"
+      "重庆大学硕士学位论文（学术学位）"
     }
   } else {
-    "重庆大学博士学位论文"
+    "重庆大学博士学位论文（学术学位）"
   }
 }
 
@@ -220,7 +220,11 @@
   )
 
   set heading(numbering: "1.1")
+  // 表格、图片与公式按章编号（符合重庆大学 2023 版格式标准：图 1.1 / 表 2.1 / (3-1)）
   show heading.where(level: 1): it => {
+    counter(figure.where(kind: image)).update(0)
+    counter(figure.where(kind: table)).update(0)
+    counter(math.equation).update(0)
     if print-mode == "twoside" {
       pagebreak(to: "odd", weak: true)
     } else {
@@ -237,9 +241,15 @@
     set text(font: cqu-fonts.hei, size: 12pt, weight: "bold")
     block(above: 0.9em, below: 0.6em, it)
   }
-
-  // 表格与图片样式
   show figure.where(kind: table): set figure.caption(position: top)
+  set figure(numbering: n => {
+    let ch = counter(heading).get().first()
+    str(ch) + "." + str(n)
+  })
+  set math.equation(numbering: n => {
+    let ch = counter(heading).get().first()
+    "(" + str(ch) + "-" + str(n) + ")"
+  })
   set table(stroke: none)
 
   body
