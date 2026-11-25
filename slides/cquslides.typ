@@ -56,7 +56,9 @@
       )
       #pad(x: 2.2cm, y: 2.4cm)[
         #v(1fr)
-        #text(font: cqu-fonts.hei, size: 34pt, weight: "bold", fill: white, title)
+        #pad(right: 3.8cm)[
+          #text(font: cqu-fonts.hei, size: 34pt, weight: "bold", fill: white, title)
+        ]
         #if subtitle != none [
           #v(0.5cm)
           #text(font: cqu-fonts.hei, size: 20pt, fill: rgb("#BFDBFE"), subtitle)
