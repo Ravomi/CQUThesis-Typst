@@ -6,7 +6,7 @@
   blind-trial: false, // 盲审模式
   title: "面向多智能体协同的工作流编排优化技术研究",
   title-en: "Research on Workflow Orchestration Optimization for Multi-Agent Collaboration",
-  author: "王阳",
+  author: "张三",
   student-id: "2023000001",
   college: "计算机学院",
   major: "计算机科学与技术",
