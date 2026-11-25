@@ -51,7 +51,7 @@
           stroke: (bottom: if accent-bar { 2.5pt + theme.primary } else { 1pt + theme.border }),
           text(
             font: cqu-fonts.hei,
-            size: 28pt,
+            size: 36pt,
             weight: "bold",
             fill: theme.primary,
             title,
@@ -114,7 +114,7 @@
 
   set text(
     font: cqu-fonts.song,
-    size: 20pt,
+    size: 28pt,
     lang: lang,
     region: if lang == "zh" { "CN" } else { "US" },
     fill: theme.text,
@@ -144,22 +144,22 @@
       [
         #text(
           font: cqu-fonts.hei,
-          size: 46pt,
+          size: 64pt,
           weight: "bold",
           fill: white,
           title,
         )
         #if subtitle != none [
-          #v(10pt)
-          #text(font: cqu-fonts.hei, size: 26pt, fill: rgb("#DBEAFE"), subtitle)
+          #v(12pt)
+          #text(font: cqu-fonts.hei, size: 32pt, fill: rgb("#DBEAFE"), subtitle)
         ]
-        #v(14pt)
-        #text(font: cqu-fonts.hei, size: 22pt, fill: white, authors)
-        #v(6pt)
-        #text(size: 18pt, fill: rgb("#E2E8F0"), affiliations)
+        #v(16pt)
+        #text(font: cqu-fonts.hei, size: 28pt, fill: white, authors)
+        #v(8pt)
+        #text(size: 22pt, fill: rgb("#E2E8F0"), affiliations)
         #if contact != none [
-          #v(4pt)
-          #text(font: cqu-fonts.mono, size: 16pt, fill: rgb("#BFDBFE"), contact)
+          #v(6pt)
+          #text(font: cqu-fonts.mono, size: 20pt, fill: rgb("#BFDBFE"), contact)
         ]
       ],
       ..if badge != none {
