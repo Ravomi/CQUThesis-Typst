@@ -23,6 +23,12 @@ CQUThesis-Typst 根据重庆大学现行《重庆大学博士、硕士学位论�
 
 ![CQUThesis-Typst 排版预览](figures/poster.png)
 
+## 学术海报模板（`poster/`）
+
+仓库同时内置了基于重庆大学视觉规范的学术海报 Typst 模板（[poster/](poster/)），支持 A0/A1/A2、横竖版、多栏卡片布局与双主题配色：
+
+![CQUPoster-Typst 海报预览](poster/figures/preview.png)
+
 # 用户协议
 
 1. 本模板按照 [MIT License](https://opensource.org/licenses/MIT) 开源发布；
