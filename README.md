@@ -14,6 +14,8 @@ CQUThesis-Typst 根据重庆大学《重庆大学本科设计（论文）撰写�
 * 内置三线表辅助函数（`three-line-table`）及 `GB/T 7714-2015` 顺序编码制参考文献支持；
 * 原生 UTF-8 与现代字体支持，无需安装庞大的 TeX Live 发行版，跨平台（Linux / macOS / Windows）开箱即用。
 
+![CQUThesis-Typst 封面预览](figures/preview.png)
+
 # 用户协议
 
 1. 本模板参考原版 [nanmu42/CQUThesis](https://github.com/nanmu42/CQUThesis)（LaTeX Project Public License 1.3+）转换为 Typst 实现；
