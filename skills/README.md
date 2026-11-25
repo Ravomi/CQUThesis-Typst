@@ -6,6 +6,7 @@
 
 | Skill 目录 | 适用场景 |
 | --- | --- |
+| [`typst-basics/`](typst-basics/SKILL.md) | Typst 0.14+ 语法速查、LaTeX 对照、数学公式、`set/show` 样式与排错 |
 | [`cqu-thesis-typst/`](cqu-thesis-typst/SKILL.md) | 重庆大学 Typst 学位论文排版、盲审检查与编译排错 |
 | [`academic-writing-zh/`](academic-writing-zh/SKILL.md) | 中文/双语学术论文写作、摘要四要素、去 AI 味与逻辑润色 |
 | [`bibtex-gbt7714-audit/`](bibtex-gbt7714-audit/SKILL.md) | GB/T 7714—2015 参考文献格式校验、BibTeX 清洗与引用核对 |

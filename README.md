@@ -92,6 +92,7 @@ CQUThesis-Typst/
 ├── ref/
 │   └── refs.bib           # BibTeX 参考文献库
 └── skills/                # 精选论文写作与排版 Agent Skills
+    ├── typst-basics/
     ├── cqu-thesis-typst/
     ├── academic-writing-zh/
     ├── bibtex-gbt7714-audit/
@@ -100,7 +101,7 @@ CQUThesis-Typst/
 
 # AI 论文写作 Skills
 
-仓库内置 [`skills/`](skills/README.md) 目录，包含 4 个精选的论文写作与排版 Agent Skills（标准 `SKILL.md` 格式），涵盖 **重大学位论文 Typst 排版自检**、**中文学术论文写作与去 AI 味润色**、**GB/T 7714—2015 BibTeX 校验** 与 **三线表/公式/图表规范**，可直接复制到 `~/.agents/skills/` 使用。
+仓库内置 [`skills/`](skills/README.md) 目录，包含 5 个精选的论文写作与排版 Agent Skills（标准 `SKILL.md` 格式），涵盖 **Typst 语法速查与 LaTeX 对照**、**重大学位论文 Typst 排版自检**、**中文学术论文写作与去 AI 味润色**、**GB/T 7714—2015 BibTeX 校验** 与 **三线表/公式/图表规范**，可直接复制到 `~/.agents/skills/` 使用。
 
 # 提问和支持
 
