@@ -6,7 +6,7 @@
 
 **CQUThesis-Typst** 表示的是 **C**hong**Q**ing **U**niversity **Thesis** (**Typst** Edition)。
 
-本模板是重庆大学毕业论文的 **Typst** 模板，参考 [nanmu42/CQUThesis](https://github.com/nanmu42/CQUThesis) 与 [mishaown/CQUThesis-International-2026](https://github.com/mishaown/CQUThesis-International-2026) 转换并完善，支持学士、硕士、博士以及国际生英文论文的排版，旨在以更简洁的标记语法和毫秒级编译速度减轻毕业论文撰写过程中的排版工作量。
+本模板是重庆大学毕业论文的 **Typst** 模板，支持学士、硕士、博士以及国际生英文论文的排版，旨在以更简洁的标记语法和毫秒级编译速度减轻毕业论文撰写过程中的排版工作量。
 
 CQUThesis-Typst 根据重庆大学《重庆大学本科设计（论文）撰写规范化要求（2007年修订版）》和《重庆大学博士、硕士论文撰写格式标准（2007年修订版）》编写，力求合规、简洁、易于实现、用户友好。
 
