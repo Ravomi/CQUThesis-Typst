@@ -19,7 +19,7 @@ CQUThesis-Typst 根据重庆大学现行《重庆大学博士、硕士学位论�
 * 支持**盲审模式**（`blind-trial: true`）：自动隐去封面作者/学号/导师信息，并自动省略致谢页与原创性声明/版权授权书；
 * 支持**单面/双面打印**（`print-mode: "oneside" | "twoside"`），双面模式下每章自动从奇数页开启；
 * 预置三线表辅助函数（`three-line-table`）及 `GB/T 7714—2015` 顺序编码制参考文献支持；
-* 附带精选的 AI 论文写作与排版 [`skills/`](skills/README.md) 技能集（支持 Claude Code / Codex / Cursor / Pi / Antigravity）。
+* 内置社区精选的 AI 论文写作与 Typst 排版项目级 Skills（[`.agents/skills/`](.agents/skills/)，打开仓库即可被 Claude Code / Codex / Cursor / Pi / Antigravity 自动加载）。
 
 ![CQUThesis-Typst 排版预览](figures/poster.png)
 
@@ -91,17 +91,21 @@ CQUThesis-Typst/
 ├── figures/               # 图片资源（含重庆大学校徽 CQUbadge.png 与预览图）
 ├── ref/
 │   └── refs.bib           # BibTeX 参考文献库
-└── skills/                # 精选论文写作与排版 Agent Skills
-    ├── typst-basics/
-    ├── cqu-thesis-typst/
-    ├── academic-writing-zh/
-    ├── bibtex-gbt7714-audit/
-    └── academic-figures-tables/
+└── .agents/skills/        # 项目级社区 Agent Skills（自动发现）
+    ├── typst/                 # Typst 0.14.2 完整排版与 API 索引 (lucifer1004/claude-skill-typst)
+    ├── research-paper-writing/# 学术论文写作与结构规范 (Master-cai/Research-Paper-Writing-Skills)
+    └── sciwrite/              # 科学写作与审稿润色 (labarba/sciwrite)
 ```
 
-# AI 论文写作 Skills
+# AI 论文写作 Skills（项目级安装）
 
-仓库内置 [`skills/`](skills/README.md) 目录，包含 5 个精选的论文写作与排版 Agent Skills（标准 `SKILL.md` 格式），涵盖 **Typst 语法速查与 LaTeX 对照**、**重大学位论文 Typst 排版自检**、**中文学术论文写作与去 AI 味润色**、**GB/T 7714—2015 BibTeX 校验** 与 **三线表/公式/图表规范**，可直接复制到 `~/.agents/skills/` 使用。
+本仓库已在 [`.agents/skills/`](.agents/skills/) 中预装 3 个社区高星开源 Agent Skills，使用 Claude Code / Codex / Cursor / Pi / Antigravity 打开本项目即可自动加载：
+
+| Skill | 来源仓库 | 用途 |
+| --- | --- | --- |
+| `typst` | [lucifer1004/claude-skill-typst](https://github.com/lucifer1004/claude-skill-typst) | Typst 0.14.2 语法、样式、表格、学术排版与完整 API 索引 |
+| `research-paper-writing` | [Master-cai/Research-Paper-Writing-Skills](https://github.com/Master-cai/Research-Paper-Writing-Skills) | 学术论文结构、论证对齐与投稿前呈现检查 |
+| `sciwrite` | [labarba/sciwrite](https://github.com/labarba/sciwrite) | 基于 *Writing in the Sciences* 方法论的论文润色与多轮审稿 |
 
 # 提问和支持
 
