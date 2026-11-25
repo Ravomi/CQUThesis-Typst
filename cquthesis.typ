@@ -42,6 +42,8 @@
   thesis-type: "master", // "bachelor" | "master" | "doctor"
   professional-master: false,
   blind-trial: false,
+  lang: "zh", // "zh" (中文论文) | "en" (国际生/英文论文，保留中文封面与授权书)
+  print-mode: "oneside", // "oneside" (电子版/单面) | "twoside" (纸质双面打印)
   title: "基于多智能体协同的工作流编排优化技术研究",
   title-en: "Research on Workflow Orchestration Optimization Based on Multi-Agent Collaboration",
   author: "作者姓名",
@@ -75,8 +77,8 @@
   set text(
     font: cqu-fonts.song,
     size: 12pt, // 小四
-    lang: "zh",
-    region: "CN",
+    lang: lang,
+    region: if lang == "zh" { "CN" } else { "US" },
   )
 
   // 1. 封面页
@@ -197,8 +199,15 @@
   set page(
     numbering: "1",
     header: context {
+      // 优先取本页新开章的标题，否则沿用上一章标题
+      let page-no = here().page()
+      let on-page = query(heading.where(level: 1)).filter(h => h.location().page() == page-no)
       let elems = query(heading.where(level: 1).before(here()))
-      let chapter-title = if elems.len() > 0 { elems.last().body } else { title }
+      let chapter-title = if on-page.len() > 0 {
+        on-page.first().body
+      } else if elems.len() > 0 {
+        elems.last().body
+      } else { title }
       grid(
         columns: (1fr, 1fr),
         align: (left, right),
@@ -213,7 +222,11 @@
 
   set heading(numbering: "1.1")
   show heading.where(level: 1): it => {
-    pagebreak(weak: true)
+    if print-mode == "twoside" {
+      pagebreak(to: "odd", weak: true)
+    } else {
+      pagebreak(weak: true)
+    }
     set text(font: cqu-fonts.hei, size: 16pt, weight: "bold")
     block(above: 1.2em, below: 1em, align(center)[#it])
   }
@@ -248,23 +261,25 @@
     appendix-content
   }
 
-  // 原创性声明与版权使用授权书
-  pagebreak()
-  heading(level: 1, numbering: none, outlined: true)[重庆大学学位论文原创性声明和版权使用授权书]
-  v(0.8em)
-  align(center)[#text(font: cqu-fonts.hei, size: 13pt, weight: "bold")[学位论文原创性声明]]
-  v(0.5em)
-  [本人郑重声明：所呈交的学位论文，是本人在导师的指导下，独立进行研究所取得的成果。除文中已经注明引用的内容外，本论文不包含任何其他个人或集体已经发表或撰写过的科研成果。对本文的研究作出重要贡献的个人和集体，均已在文中以明确方式标明。本声明的法律责任由本人承担。]
-  v(1.2em)
-  [论文作者签名：\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \quad 日期：\_\_\_\_\_\_年\_\_\_\_月\_\_\_\_日]
-  v(2em)
-  align(center)[#text(font: cqu-fonts.hei, size: 13pt, weight: "bold")[学位论文版权使用授权书]]
-  v(0.5em)
-  [本学位论文作者完全了解重庆大学有关保留、使用学位论文的规定，即：学校有权保留并向国家有关部门或机构送交论文的复印件和电子版，允许论文被查阅和借阅。本人授权重庆大学可以将本学位论文的全部或部分内容编入有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存和汇编本学位论文。]
-  v(1.2em)
-  [论文作者签名：\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \quad 导师签名：\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_]
-  v(0.8em)
-  [日期：\_\_\_\_\_\_年\_\_\_\_月\_\_\_\_日 \qquad 日期：\_\_\_\_\_\_年\_\_\_\_月\_\_\_\_日]
+  // 原创性声明与版权使用授权书（盲审模式下自动省略，参考 CQUThesis-International-2026）
+  if not blind-trial {
+    pagebreak()
+    heading(level: 1, numbering: none, outlined: true)[重庆大学学位论文原创性声明和版权使用授权书]
+    v(0.8em)
+    align(center)[#text(font: cqu-fonts.hei, size: 13pt, weight: "bold")[学位论文原创性声明]]
+    v(0.5em)
+    [本人郑重声明：所呈交的学位论文，是本人在导师的指导下，独立进行研究所取得的成果。除文中已经注明引用的内容外，本论文不包含任何其他个人或集体已经发表或撰写过的科研成果。对本文的研究作出重要贡献的个人和集体，均已在文中以明确方式标明。本声明的法律责任由本人承担。]
+    v(1.2em)
+    [论文作者签名：\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ #h(2em) 日期：\_\_\_\_\_\_年\_\_\_\_月\_\_\_\_日]
+    v(2em)
+    align(center)[#text(font: cqu-fonts.hei, size: 13pt, weight: "bold")[学位论文版权使用授权书]]
+    v(0.5em)
+    [本学位论文作者完全了解重庆大学有关保留、使用学位论文的规定，即：学校有权保留并向国家有关部门或机构送交论文的复印件和电子版，允许论文被查阅和借阅。本人授权重庆大学可以将本学位论文的全部或部分内容编入有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保存和汇编本学位论文。]
+    v(1.2em)
+    [论文作者签名：\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ #h(2em) 导师签名：\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_]
+    v(0.8em)
+    [日期：\_\_\_\_\_\_年\_\_\_\_月\_\_\_\_日 #h(4em) 日期：\_\_\_\_\_\_年\_\_\_\_月\_\_\_\_日]
+  }
 }
 
 // 三线表辅助函数

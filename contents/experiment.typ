@@ -14,4 +14,8 @@
 
 == 查询文档
 
-当你对 Typst 语法或内置函数有疑问时，可以访问官方文档：[https://typst.app/docs](https://typst.app/docs)。
+当你对 Typst 语法或内置函数有疑问时，可以访问官方文档：#link("https://typst.app/docs")。
+
+== 参考文献示例
+
+正文中使用 `@key` 即可按 GB/T 7714—2015 顺序编码制引用文献，例如 @r1 @r2 @r3 @r4。

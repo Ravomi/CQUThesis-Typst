@@ -43,5 +43,6 @@ Typst 是一套现代化的开源排版系统，与传统 LaTeX 一样遵循 *�
       ```
     ],
   ),
+  kind: image,
   caption: [CQUThesis-Typst 文件结构图示],
 ) <fig-filetree>
