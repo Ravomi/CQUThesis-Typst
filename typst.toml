@@ -1,0 +1,17 @@
+[package]
+name = "modern-cqu-thesis"
+version = "0.2.0"
+entrypoint = "cquthesis.typ"
+authors = ["CQUThesis-Typst Contributors"]
+license = "MIT"
+description = "Chongqing University thesis template for Typst (bachelor, master, doctor, and international)."
+repository = "https://github.com/Ravomi/CQUThesis-Typst"
+keywords = ["Chongqing University", "CQU", "thesis", "dissertation", "Chinese"]
+categories = ["thesis"]
+compiler = "0.14.0"
+exclude = ["main.pdf", "figures/poster.png", "figures/preview.png"]
+
+[template]
+path = "."
+entrypoint = "main.typ"
+thumbnail = "figures/preview.png"

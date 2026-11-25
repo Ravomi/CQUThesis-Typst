@@ -3,9 +3,9 @@
 #let thesis-state = state("cqu-thesis", (:))
 
 #let cqu-fonts = (
-  song: ("Noto Serif CJK SC", "SimSun", "Source Han Serif SC", "Linux Libertine"),
-  hei: ("Noto Sans CJK SC", "SimHei", "Source Han Sans SC", "Arial"),
-  kai: ("Noto Serif CJK SC", "KaiTi", "STKaiti"),
+  song: ("Times New Roman", "Liberation Serif", "SimSun", "Noto Serif CJK SC"),
+  hei: ("Times New Roman", "Liberation Sans", "SimHei", "Noto Sans CJK SC"),
+  kai: ("Times New Roman", "KaiTi", "STKaiti", "Noto Serif CJK SC"),
   mono: ("DejaVu Sans Mono", "Consolas", "Courier New"),
 )
 
@@ -225,6 +225,9 @@
     counter(figure.where(kind: image)).update(0)
     counter(figure.where(kind: table)).update(0)
     counter(math.equation).update(0)
+    counter("cqu-theorem").update(0)
+    counter("cqu-definition").update(0)
+    counter("cqu-algorithm").update(0)
     if print-mode == "twoside" {
       pagebreak(to: "odd", weak: true)
     } else {
@@ -301,4 +304,80 @@
     inset: 6pt,
     ..args,
   )
+}
+
+// 双语题注辅助函数
+#let bilingual-caption(cn, en) = [
+  #cn \
+  #text(size: 10.5pt)[#en]
+]
+
+// 按章编号的定理、定义、证明环境
+#let thm-counter = counter("cqu-theorem")
+#let def-counter = counter("cqu-definition")
+#let alg-counter = counter("cqu-algorithm")
+
+#let theorem(title: none, body) = {
+  thm-counter.step()
+  block(
+    above: 0.8em,
+    below: 0.8em,
+    breakable: true,
+  )[
+    #context {
+      let ch = counter(heading).get().first()
+      let n = thm-counter.get().first()
+      let label-text = "定理 " + str(ch) + "." + str(n) + if title != none { "（" + title + "）" } else { "" }
+      text(font: cqu-fonts.hei, weight: "bold")[#label-text]
+    }
+    #h(0.5em)#body
+  ]
+}
+
+#let definition(title: none, body) = {
+  def-counter.step()
+  block(
+    above: 0.8em,
+    below: 0.8em,
+    breakable: true,
+  )[
+    #context {
+      let ch = counter(heading).get().first()
+      let n = def-counter.get().first()
+      let label-text = "定义 " + str(ch) + "." + str(n) + if title != none { "（" + title + "）" } else { "" }
+      text(font: cqu-fonts.hei, weight: "bold")[#label-text]
+    }
+    #h(0.5em)#body
+  ]
+}
+
+#let proof(body) = {
+  block(above: 0.5em, below: 0.8em, breakable: true)[
+    #text(font: cqu-fonts.hei, weight: "bold")[证明：]#body #h(1fr) $square$
+  ]
+}
+
+// 三线伪代码算法框
+#let algorithm(title: "算法", input: none, output: none, body) = {
+  alg-counter.step()
+  block(
+    width: 100%,
+    above: 1em,
+    below: 1em,
+    breakable: true,
+    stroke: (top: 1.2pt, bottom: 1.2pt),
+    inset: (y: 6pt, x: 4pt),
+  )[
+    #context {
+      let ch = counter(heading).get().first()
+      let n = alg-counter.get().first()
+      text(font: cqu-fonts.hei, weight: "bold")[算法 #ch.#n #h(0.5em) #title]
+    }
+    #v(2pt)
+    #line(length: 100%, stroke: 0.6pt)
+    #v(2pt)
+    #if input != none [*输入：* #input \ ]
+    #if output != none [*输出：* #output \ ]
+    #body
+  ]
 }

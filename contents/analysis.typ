@@ -1,12 +1,36 @@
-#import "../cquthesis.typ": three-line-table
+#import "../cquthesis.typ": three-line-table, definition, theorem, proof, algorithm
 
 = 系统设计与实验分析
 
 == 问题建模
 
-设工作流任务集合为 $V = {v_1, v_2, dots, v_n}$，任务依赖关系构成有向无环图 $G = (V, E)$。整体目标为最小化总完成时间：
+#definition(title: "任务依赖图")[
+  设工作流任务集合为 $V = {v_1, v_2, dots, v_n}$，任务依赖关系构成有向无环图 $G = (V, E)$。
+]
+
+整体目标为最小化总完成时间：
 
 $ T_"total" = max_(v_i in V) (t_"start"(v_i) + t_"exec"(v_i)) $
+
+#theorem(title: "关键路径下界")[
+  任意可行调度方案的总完成时间均不小于有向无环图 $G$ 的关键路径长度 $L_"cp"$。
+]
+
+#proof[
+  由依赖约束可知，关键路径上相邻任务不可并行执行，故其总耗时之和构成 $T_"total"$ 的紧下界。
+]
+
+#algorithm(
+  title: "动态反馈工作流编排算法",
+  input: [任务依赖图 $G = (V, E)$，可用智能体集合 $A$],
+  output: [最优调度方案 $S^*$],
+)[
+  1. 计算所有节点的拓扑序与最早开始时间；
+  2. *while* 存在未完成任务 *do*
+  3. #h(1.5em) 选取就绪队列中关键路径权重最大的任务分配给空闲智能体；
+  4. #h(1.5em) 根据实时执行反馈动态更新剩余节点耗时估计；
+  5. *return* 调度方案 $S^*$。
+]
 
 == 性能对比
 

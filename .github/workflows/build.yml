@@ -13,16 +13,34 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Noto CJK fonts
+      - name: Install fonts and poppler-utils
         run: |
           sudo apt-get update
-          sudo apt-get install -y fonts-noto-cjk
+          sudo apt-get install -y fonts-noto-cjk fonts-liberation poppler-utils
 
       - name: Setup Typst
         uses: typst-community/setup-typst@v4
 
-      - name: Compile thesis PDF
-        run: typst compile main.typ
+      - name: Compile default (Master Academic)
+        run: typst compile main.typ main.pdf
+
+      - name: Compile Bachelor / Doctor / English modes
+        run: |
+          sed 's/thesis-type: "master"/thesis-type: "bachelor"/' main.typ > _bachelor.typ
+          typst compile _bachelor.typ bachelor.pdf
+          sed 's/thesis-type: "master"/thesis-type: "doctor"/' main.typ > _doctor.typ
+          typst compile _doctor.typ doctor.pdf
+          sed 's/lang: "zh"/lang: "en"/' main.typ > _en.typ
+          typst compile _en.typ en.pdf
+          rm -f _bachelor.typ _doctor.typ _en.typ
+
+      - name: Compile and verify Blind Review mode
+        run: |
+          make blind
+          if pdftotext main-blind.pdf - | grep -qE "原创性声明|版权使用授权书"; then
+            echo "ERROR: Blind review PDF leaked authorization page!"
+            exit 1
+          fi
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
