@@ -35,7 +35,7 @@ typst compile --format png --ppi 100 main.typ figures/preview.png
 
 详细配置说明与组件用法请见 [poster/README.md](poster/README.md)。
 
-![CQUPoster-Typst 海报预览](poster/figures/preview.png?v=2)
+![CQUPoster-Typst 海报预览](poster/figures/preview.png?v=3)
 
 ## 学术幻灯片模板（`slides/`）
 
