@@ -102,7 +102,11 @@ CQUThesis-Typst/
 
 # 致谢 / Acknowledgements
 
-感谢 [Typst](https://github.com/typst/typst) 开源社区及所有为中文学术排版做出贡献的开发者。
+感谢 [Typst](https://github.com/typst/typst) 开源社区及所有为重庆大学学位论文排版规范做出贡献的开发者：
+
+- **Original upstream**: [nanmu42/CQUThesis](https://github.com/nanmu42/CQUThesis) by Zhennan Li and contributors
+- **Modified community baseline**: [yinguoweiOvO/CQU_Thesis2024](https://github.com/yinguoweiOvO/CQU_Thesis2024)
+- **International adaptation**: [mishaown/CQUThesis-International-2026](https://github.com/mishaown/CQUThesis-International-2026) by Md Minhazul Islam
 
 世界因你们更美好。
 
