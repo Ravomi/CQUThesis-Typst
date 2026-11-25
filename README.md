@@ -47,7 +47,7 @@ typst compile main.typ slides.pdf
 typst compile --format png --ppi 120 main.typ "figures/preview-{p}.png"
 ```
 
-![CQUSlides-Typst 首页预览](slides/figures/preview-1.png?v=2)
+![CQUSlides-Typst 首页预览](slides/figures/preview-1.png?v=3)
 
 # 用户协议
 
