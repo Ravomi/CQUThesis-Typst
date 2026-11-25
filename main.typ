@@ -21,14 +21,8 @@
     This template implements the Chongqing University thesis format specification using the Typst typesetting system. It supports bachelor's, academic master's, professional master's, and doctoral dissertations, including cover pages, bilingual abstracts, tables of contents, lists of figures and tables, GB/T 7714 bibliography, acknowledgments, and originality declaration.
   ],
   keywords-en: ("Chongqing University", "Thesis Template", "Typst", "Multi-Agent Collaboration"),
-  denotation: [
-    - *CQU*：重庆大学（Chongqing University）
-    - *MAS*：多智能体系统（Multi-Agent System）
-    - *DAG*：有向无环图（Directed Acyclic Graph）
-  ],
-  ack: [
-    衷心感谢重庆大学计算机学院各位老师的悉心指导，以及开源社区 `nanmu42/CQUThesis` 提供的 LaTeX 规范参考。
-  ],
+  denotation: include "contents/denotation.typ",
+  ack: include "contents/ack.typ",
   appendix-content: [
     = 攻读学位期间发表的学术论文及科研成果
     1. 示例论文，2026 年。
@@ -37,5 +31,6 @@
 )
 
 #include "contents/introduction.typ"
+#include "contents/experiment.typ"
 #include "contents/analysis.typ"
 #include "contents/conclusion.typ"
