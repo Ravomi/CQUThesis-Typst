@@ -135,9 +135,17 @@
   - 两者在效率与可靠性上形成显著互补，缺一不可。
 ]
 
+#v(20pt)
+
+#poster-card("6. 跨模型泛化与鲁棒性")[
+  我们在不同基座模型上测试了编排框架的通用性：
+  - *Qwen-Max / DeepSeek-V3*：成功率提升 *+14.1%*，平均延迟降低 *58.3%*。
+  - *混合异构路由（Pro + Flash）*：在保持 92.8% 成功率的同时，API 成本进一步降低 *41.0%*。
+]
+
 #colbreak()
 
-#poster-card("6. 总结与未来展望")[
+#poster-card("7. 总结与未来展望")[
   本文提出的多智能体协同编排方法在多个基准上取得了显著的效率与精度提升。未来工作将聚焦于：
   - 跨异构模型的自适应路由策略；
   - 面向长周期任务的持久化断点恢复机制；
@@ -151,7 +159,20 @@
 
 #v(20pt)
 
-#poster-card("7. 致谢、参考文献与开源地址")[
+#poster-card("8. 开源工具链与快速复现")[
+  本模板与实验脚本已全部开源，支持一键编译与自动化测试：
+  ```bash
+  git clone https://github.com/Ravomi/CQUThesis-Typst.git
+  cd CQUThesis-Typst/poster && typst compile main.typ
+  ```
+  - 支持 *A0 / A1 / A2* 多种展板尺寸与横竖版切换；
+  - 内置 *`cqu-blue`* 与 *`academic-slate`* 双主题；
+  - 配套 *`typst-academic-poster`* Agent Skill，支持自动排版与视觉验收。
+]
+
+#v(20pt)
+
+#poster-card("9. 致谢、参考文献与开源地址")[
   感谢重庆大学计算机学院提供计算资源支持。
 
   1. Ravomi. *CQUThesis-Typst: Chongqing University Thesis Template for Typst*. GitHub, 2026.
