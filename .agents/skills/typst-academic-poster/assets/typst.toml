@@ -1,0 +1,14 @@
+[package]
+name = "modern-cqu-poster"
+version = "0.1.0"
+entrypoint = "cquposter.typ"
+authors = ["CQUThesis-Typst Contributors"]
+license = "MIT"
+description = "Chongqing University academic poster template for Typst (A0/A1/A2)."
+keywords = ["Chongqing University", "CQU", "poster", "academic", "Chinese"]
+categories = ["poster"]
+compiler = "0.14.0"
+
+[template]
+path = "."
+entrypoint = "main.typ"
