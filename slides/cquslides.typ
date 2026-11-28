@@ -2,8 +2,8 @@
 // 16:9 宽屏，零外部依赖，适配组会汇报、学位答辩与学术报告
 
 #let cqu-fonts = (
-  song: ("Times New Roman", "Liberation Serif", "SimSun", "Noto Serif CJK SC"),
-  hei: ("Times New Roman", "Liberation Sans", "SimHei", "Noto Sans CJK SC"),
+  song: ("Times New Roman", "Liberation Serif", "Source Han Serif", "Noto Serif CJK SC", "SimSun"),
+  hei: ("Times New Roman", "Liberation Sans", "Source Han Sans", "Noto Sans CJK SC", "SimHei"),
   mono: ("DejaVu Sans Mono", "Consolas", "Courier New"),
 )
 

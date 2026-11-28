@@ -3,9 +3,9 @@
 #let thesis-state = state("cqu-thesis", (:))
 
 #let cqu-fonts = (
-  song: ("Times New Roman", "Liberation Serif", "SimSun", "Noto Serif CJK SC"),
-  hei: ("Times New Roman", "Liberation Sans", "SimHei", "Noto Sans CJK SC"),
-  kai: ("Times New Roman", "KaiTi", "STKaiti", "Noto Serif CJK SC"),
+  song: ("Times New Roman", "Liberation Serif", "Source Han Serif", "Noto Serif CJK SC", "SimSun"),
+  hei: ("Times New Roman", "Liberation Sans", "Source Han Sans", "Noto Sans CJK SC", "SimHei"),
+  kai: ("Times New Roman", "KaiTi", "STKaiti", "Source Han Serif", "Noto Serif CJK SC"),
   mono: ("DejaVu Sans Mono", "Consolas", "Courier New"),
 )
 

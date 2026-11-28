@@ -68,9 +68,52 @@ git clone https://github.com/Ravomi/CQUThesis-Typst.git
 cd CQUThesis-Typst
 ```
 
-## 编译
+## 环境配置方案
+
+### 1. 安装 Typst 编译器
 
 无需安装庞大的 TeX Live，仅需安装 [Typst](https://github.com/typst/typst)（推荐 `0.14+`）：
+
+- **macOS (Homebrew)**：
+  ```bash
+  brew install typst
+  ```
+- **Windows (Winget)**：
+  ```powershell
+  winget install --id Typst.Typst
+  ```
+- **Linux (Arch / Cargo)**：
+  ```bash
+  sudo pacman -S typst
+  # 或 cargo install --locked typst-cli
+  ```
+
+推荐使用 VS Code 搭配 **Tinymist Typst** 插件，可获得语法高亮、跳转与实时 PDF 预览。
+
+### 2. 字体配置（思源宋体）
+
+本仓库三套模板（论文、海报、幻灯片）均默认优先使用**思源宋体（Source Han Serif）**作为中文正文字体（兼容 `Noto Serif CJK SC` / `SimSun`），英文与数字搭配 `Times New Roman` / `Liberation Serif`，标题搭配**思源黑体（Source Han Sans）**。
+
+- **官方下载（Windows / macOS / Linux 通用）**：
+  前往 [adobe-fonts/source-han-serif Releases](https://github.com/adobe-fonts/source-han-serif/releases) 与 [adobe-fonts/source-han-sans Releases](https://github.com/adobe-fonts/source-han-sans/releases) 下载简体中文版（`SubsetOTF/CN` 或 `OTC`），解压安装即可。
+- **Linux 包管理器快速安装**：
+  ```bash
+  # Arch Linux / CachyOS
+  sudo pacman -S adobe-source-han-serif-cn-fonts adobe-source-han-sans-cn-fonts
+
+  # Ubuntu / Debian（同源 Noto CJK 字体）
+  sudo apt update && sudo apt install -y fonts-noto-cjk
+  ```
+- **验证字体是否生效**：
+  ```bash
+  typst fonts | grep -i "Source Han"
+  ```
+  若字体放置在项目 `fonts/` 目录或自定义路径下，编译时可附加 `--font-path fonts`：
+  ```bash
+  typst compile --font-path fonts main.typ
+  ```
+
+## 编译
 
 ```bash
 # 单次编译生成 main.pdf
@@ -84,8 +127,6 @@ make        # 编译 main.pdf
 make blind  # 一键生成盲审版 main-blind.pdf
 make clean  # 清理生成文件
 ```
-
-推荐使用 VS Code 搭配 **Tinymist Typst** 插件，可获得语法高亮、跳转与实时 PDF 预览。
 
 ## 学位类型与模式配置
 
